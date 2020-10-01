@@ -4,6 +4,7 @@ const User = require('../models/user');
 const NotFoundError = require('../errors/NotFoundError');
 const BadRequestError = require('../errors/BadRequestError');
 const UnauthorizedError = require('../errors/UnauthorizedError');
+const RepeatEmailError = require('../errors/RepeatEmailError');
 const { NODE_ENV, JWT_SECRET } = process.env;
 module.exports.getUsers = (req, res, next) => {
   User.find({})
@@ -42,7 +43,13 @@ module.exports.createUser = (req, res, next) => {
       _id: data._id,
       email: data.email,
     }))
-    .catch((err) => next(new BadRequestError(err)));
+    .catch((err) => {
+      if (err.code === 11000) {
+        next(new RepeatEmailError(err));
+      } else {
+        next(new BadRequestError(err));
+      }
+    });
 };
 module.exports.login = (req, res, next) => {
   const { email, password } = req.body;
