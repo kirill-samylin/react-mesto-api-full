@@ -12,7 +12,7 @@ authRouter.post('/signin', celebrate({
   }),
 }), login);
 
-authRouter.post('/signup', console.log(1234), celebrate({
+authRouter.post('/signup', celebrate({
   body: Joi.object().keys({
     name: Joi.string().required().min(2).max(30),
     about: Joi.string().required().min(2).max(30),

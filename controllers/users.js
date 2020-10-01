@@ -27,7 +27,6 @@ module.exports.getMyInfo = (req, res, next) => {
     .catch(next);
 };
 module.exports.createUser = (req, res, next) => {
-  console.log('createUser');
   const {
     name, about, avatar, email, password,
   } = req.body;
