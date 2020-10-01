@@ -41,7 +41,7 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
-app.post('/', authRouter);
+app.use('/', authRouter);
 
 app.use(auth);
 

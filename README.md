@@ -1,7 +1,7 @@
 # Проектная работа № 15 (Yandex Beб-разработчик) 
 
 ### Информация:
-* Доменное имя front-end https://www.samylin.students.nomoreparties.co
+* Доменное имя front-end https://www.samylin.students.nomoreparties.co (фронт адаптировал под бэк)
 * Доменное имя back-end https://www.api.samylin.students.nomoreparties.co
 * IP сервера: 82.146.48.129
 
